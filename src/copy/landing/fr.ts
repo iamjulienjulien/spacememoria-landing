@@ -140,7 +140,7 @@ export const SPACE_MEMORIA_LANDING_COPY_FR = {
 
     footer: {
         links: [
-            // { label: "contact@julienjulien.fr", href: "mailto:contact@julienjulien.fr" },
+            // { label: "contact@julienjulien.fr", hiconref: "mailto:contact@julienjulien.fr" },
             { label: "spacememoria.com", href: "https://spacememoria.com" },
         ],
         copyrightName: "Space Memoria",
@@ -185,7 +185,7 @@ export const SPACE_MEMORIA_METADATA_COPY_FR = {
         image: {
             url: "/og.png",
             width: 1200,
-            height: 630,
+            height: 675,
             alt: "Space Memoria – Généalogie et mémoire familiale",
         },
     },
@@ -198,8 +198,23 @@ export const SPACE_MEMORIA_METADATA_COPY_FR = {
     },
 
     icons: {
-        favicon: "/favicon.ico",
+        icon: [
+            { url: "/favicon.ico" },
+            { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+            { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        ],
+        apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+        other: [
+            {
+                rel: "android-chrome",
+                url: "/android-chrome-512x512.png",
+                sizes: "512x512",
+                type: "image/png",
+            },
+        ],
     },
+
+    manifest: "/site.webmanifest",
 
     robots: {
         index: true,

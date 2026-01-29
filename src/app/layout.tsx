@@ -51,7 +51,16 @@ export async function generateMetadata(): Promise<Metadata> {
             description: meta.twitter.description,
             images: [meta.twitter.image],
         },
-        icons: { icon: meta.icons.favicon },
+        /* ------------------------------------------------------------------
+           Icons & PWA
+           ------------------------------------------------------------------ */
+        icons: {
+            icon: [...meta.icons.icon],
+            apple: [...meta.icons.apple],
+            other: [...meta.icons.other],
+        },
+
+        manifest: meta.manifest,
         robots: { index: meta.robots.index, follow: meta.robots.follow },
     };
 }

@@ -184,7 +184,7 @@ export const SPACE_MEMORIA_METADATA_COPY_EN = {
         image: {
             url: "/og.png",
             width: 1200,
-            height: 630,
+            height: 675,
             alt: "Space Memoria – Genealogy and family memory",
         },
     },
@@ -197,8 +197,23 @@ export const SPACE_MEMORIA_METADATA_COPY_EN = {
     },
 
     icons: {
-        favicon: "/favicon.ico",
+        icon: [
+            { url: "/favicon.ico" },
+            { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+            { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+        ],
+        apple: [{ url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
+        other: [
+            {
+                rel: "android-chrome",
+                url: "/android-chrome-512x512.png",
+                sizes: "512x512",
+                type: "image/png",
+            },
+        ],
     },
+
+    manifest: "/site.webmanifest",
 
     robots: {
         index: true,
