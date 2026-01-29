@@ -1,0 +1,423 @@
+@import "tailwindcss";
+
+/* ============================================================================
+   1) Design tokens
+   ============================================================================ */
+
+:root {
+    /* Colors */
+    --bg: #070a12;
+    --card: rgba(255, 255, 255, 0.06);
+    --border: rgba(255, 255, 255, 0.1);
+    --text: rgba(255, 255, 255, 0.92);
+    --muted: rgba(255, 255, 255, 0.68);
+    --accent: rgba(140, 180, 255, 1);
+
+    /* Typography */
+    /* Set by next/font (layout): --font-outfit / --font-sora, etc. */
+    --font-sans: var(--font-outfit);
+}
+
+/* ============================================================================
+   2) Base / Reset
+   ============================================================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    background:
+        radial-gradient(1200px 700px at 20% 10%, rgba(140, 180, 255, 0.18), transparent 60%),
+        radial-gradient(900px 600px at 80% 30%, rgba(200, 140, 255, 0.12), transparent 55%),
+        radial-gradient(800px 700px at 50% 90%, rgba(120, 255, 210, 0.08), transparent 60%),
+        var(--bg);
+    background-attachment: fixed; /* 🔑 */
+}
+
+body {
+    margin: 0;
+    min-height: 100%;
+    color: var(--text);
+    overflow-x: hidden;
+
+    font-family:
+        var(--font-sans),
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        "Apple Color Emoji",
+        "Segoe UI Emoji";
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================================================
+   3) Layout
+   ============================================================================ */
+
+.wrap {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 28px 18px 64px;
+}
+
+/* Vertical rhythm between major sections */
+section + section {
+    margin-top: 25px;
+}
+
+.mt-12 {
+    margin-top: 12px;
+}
+
+/* ============================================================================
+   4) Typography
+   ============================================================================ */
+
+h1 {
+    margin: 0 0 10px;
+    font-size: clamp(34px, 4.6vw, 54px);
+    line-height: 1.02;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h2,
+h3 {
+    font-weight: 600;
+}
+
+.lead {
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 58ch;
+    font-weight: 400;
+}
+
+/* ============================================================================
+   5) Topbar
+   ============================================================================ */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 26px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+}
+
+.badge {
+    font-size: 12px;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+/* ============================================================================
+   6) Section title
+   ============================================================================ */
+
+.section-title {
+    margin: 26px 0 12px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.section-title h2 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 0.3px;
+    color: rgba(255, 255, 255, 0.82);
+}
+
+.section-title .hint {
+    margin: 0;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* ============================================================================
+   7) Hero
+   ============================================================================ */
+
+.hero {
+    position: relative;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.03));
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow:
+        0 0 0 1px rgba(0, 0, 0, 0.35),
+        0 30px 80px rgba(0, 0, 0, 0.55);
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: radial-gradient(600px 200px at 30% 10%, rgba(140, 180, 255, 0.25), transparent 60%);
+    filter: blur(10px);
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.hero-inner {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 22px;
+    align-items: stretch;
+}
+
+@media (max-width: 860px) {
+    .hero-inner {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CTA panel (Hero right column) */
+.hero-cta-col {
+    display: flex;
+}
+
+.hero-cta-col .cta {
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* form en haut, fineprint en bas */
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+/* ============================================================================
+   8) Chips
+   ============================================================================ */
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.chip {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 999px;
+    padding: 8px 10px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* ============================================================================
+   9) Card
+   ============================================================================ */
+
+.card {
+    border: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+.card h3 {
+    margin: 0 0 8px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    color: rgba(255, 255, 255, 0.86);
+    font-weight: 500;
+}
+
+.card p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* ============================================================================
+   10) Grids
+   ============================================================================ */
+
+/* Default grid: used by “Features” (dense) */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+@media (max-width: 940px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 620px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Softer grid: used by “What you can do” blocks (less dense) */
+.grid-2 {
+    display: grid;
+    gap: 12px;
+}
+
+@media (min-width: 900px) {
+    .grid-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ============================================================================
+   11) Forms / Buttons
+   ============================================================================ */
+
+form {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 5px;
+}
+
+input[type="email"] {
+    flex: 1 1 220px;
+    min-width: 220px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    background: rgba(0, 0, 0, 0.25);
+    color: var(--text);
+    outline: none;
+}
+
+input[type="email"]::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+button {
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(140, 180, 255, 0.45);
+    background: rgba(140, 180, 255, 0.14);
+    color: var(--text);
+    cursor: pointer;
+    font-weight: 700;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background: rgba(140, 180, 255, 0.18);
+    box-shadow: 0 0 0 4px rgba(140, 180, 255, 0.1);
+}
+
+.fineprint {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.5;
+}
+
+/* Honeypot: keep in DOM but invisible to humans */
+.hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+/* CTA error */
+.cta-error {
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(255, 170, 170, 0.9);
+}
+
+/* ============================================================================
+   12) Footer
+   ============================================================================ */
+
+.footer {
+    margin-top: 26px;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    color: rgba(255, 255, 255, 0.55);
+    font-size: 12px;
+}
+
+.links {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* ============================================================================
+   13) “What you can do” (3 grouped blocks)
+   ============================================================================ */
+
+.what-grid {
+    display: grid;
+    gap: 16px;
+}
+
+.what-block-title {
+    margin: 0 0 10px 0;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    opacity: 0.9;
+}
+
+.status-list {
+    margin: 12px 0 0;
+    padding-left: 15px;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.status-list li {
+    margin-bottom: 6px;
+}
