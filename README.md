@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🧬 Space Memoria — Landing
 
-## Getting Started
+> **La généalogie comme une constellation.**  
+> Une mémoire familiale vivante, structurée et racontée.
 
-First, run the development server:
+Cette repository contient la **landing page officielle** de **Space Memoria**, un projet de généalogie nouvelle génération qui transforme l’histoire familiale en un espace lisible, narratif et transmissible.
+
+🌌 Ici, on ne parle pas seulement d’arbres.  
+On parle de **galaxies**, de **liens**, de **récits**, et de ce qui mérite d’être conservé.
+
+---
+
+## ✨ À propos du projet
+
+**Space Memoria** est né d’un constat simple :
+
+> Les histoires familiales sont souvent dispersées, fragmentées, enfermées dans des dossiers, des logiciels opaques ou des souvenirs qui s’effacent.
+
+L’ambition du projet est de proposer :
+
+- une **structure claire** pour la généalogie
+- une **place centrale pour le récit et la mémoire**
+- une **navigation fluide** par personnes, lieux, périodes et relations
+- une transmission pensée pour le **long terme**
+
+🚧 _Première version en préparation._
+
+---
+
+## 🧭 Contenu de la landing
+
+- Présentation de la vision
+- Inscription à la waitlist
+- Gestion FR / EN automatique
+- SEO & OpenGraph complets
+
+---
+
+## 🛠️ Stack technique
+
+- Next.js (App Router)
+- TypeScript
+- CSS custom + Tailwind
+- next/font (Outfit)
+- Resend + Zod
+- Helpers i18n maison
+
+---
+
+## 🚀 Démarrer en local
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 👋 À propos du développeur
 
-## Learn More
+**Julien Julien**  
+Développeur Full Stack & créateur de projets narratifs.
 
-To learn more about Next.js, take a look at the following resources:
+> Je conçois des applications et des outils numériques durables, où le code, la structure et le récit avancent ensemble.  
+> J’aime les projets clairs, évolutifs, pensés pour le temps long plutôt que pour l’instantané.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📍 Angers, France 🇫🇷  
+🌍 https://julienjulien.fr
