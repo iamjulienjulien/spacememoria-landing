@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
+import { init } from "@plausible-analytics/tracker";
 
 import "./globals.css";
 
@@ -67,6 +68,10 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const locale = await getRequestLocale();
+
+    init({
+        domain: "spacememoria.com",
+    });
 
     return (
         <html lang={locale} className={outfit.variable}>
