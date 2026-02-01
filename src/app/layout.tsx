@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
-import { init } from "@plausible-analytics/tracker";
+import Script from "next/script";
 
 import "./globals.css";
 
@@ -68,13 +68,24 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
     const locale = await getRequestLocale();
-
-    init({
-        domain: "spacememoria.com",
-    });
-
     return (
         <html lang={locale} className={outfit.variable}>
+            <head>
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <Script id="plausible-stub" strategy="beforeInteractive">
+                    {`
+                      window.plausible = window.plausible || function() {
+                        (window.plausible.q = window.plausible.q || []).push(arguments)
+                      }
+                    `}
+                </Script>
+                <Script
+                    strategy="afterInteractive"
+                    defer
+                    data-domain="spacememoria.com"
+                    src="https://plausible.io/js/script.js"
+                />
+            </head>
             <body>{children}</body>
         </html>
     );
